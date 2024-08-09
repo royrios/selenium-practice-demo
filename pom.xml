@@ -118,9 +118,6 @@
           <version>2.22.2</version>
           <configuration>
             <testFailureIgnore>false</testFailureIgnore>
-            <argLine>
-              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-            </argLine>
             <suiteXmlFiles>
             <suiteXmlFile>TestNG.xml</suiteXmlFile>
           </suiteXmlFiles>
