@@ -121,6 +121,12 @@
             <argLine>
               -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
             </argLine>
+            <suiteXmlFiles>
+            <suiteXmlFile>TestNG.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <systemProperties>
+            <testng.selenium.endpoint>${testng.selenium.endpoint}</testng.selenium.endpoint>
+          </systemProperties>
           </configuration>
           <dependencies>
             <dependency>

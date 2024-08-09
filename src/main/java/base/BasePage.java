@@ -30,6 +30,7 @@ public class BasePage {
 		// TODO Auto-generated method stub
 		driver.get(url);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 	
 	public void searchWebElement(By locator) {
