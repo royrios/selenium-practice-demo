@@ -28,7 +28,7 @@ public class TestBase extends DriverManager {
 		
 	}
 	
-	@BeforeMethod(alwaysRun = true)
+	@BeforeMethod(alwaysRun = false)
 	public void setup() {
 		//Read from properties file and set the WebDriver
 		
@@ -59,8 +59,8 @@ public class TestBase extends DriverManager {
 		
 		
 	}
-	
-	@AfterMethod(alwaysRun = true)
+	//remove 
+	@AfterMethod(alwaysRun = false)
 	public void tearDown() {
 		
 		driver.quit();
