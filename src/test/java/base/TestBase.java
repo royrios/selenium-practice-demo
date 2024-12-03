@@ -35,9 +35,9 @@ public class TestBase extends DriverManager {
 		try {
 			
 			if(PropertyReader.readItem("browser").equalsIgnoreCase("chrome")) {
-				
+				//updates chomedriver version to 64bits
 				System.getProperty("java.classpath");
-				System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win64\\chromedriver.exe");
 				driver = new ChromeDriver();
 				
 				
