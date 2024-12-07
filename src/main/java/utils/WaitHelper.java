@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import static java.time.Duration.*;
 
 
 public class WaitHelper {
@@ -25,16 +26,16 @@ public class WaitHelper {
 		this.driver =driver;
 		this.fluentWait = new FluentWait<WebDriver>(this.driver)
 				//Specify the timeout of the wait
-				.withTimeout(30,TimeUnit.SECONDS)
+				.withTimeout(ofSeconds(30L))
 				//Specify the polling time
-				.pollingEvery(1,TimeUnit.SECONDS )
+				.pollingEvery(ofSeconds(1L))
 				//Specify what exception to ignore
 				.ignoring(NoSuchElementException.class); 
 		
 	}
 	
 	public void implicitWait() {
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
 	}
 	
 	public WebElement presenceofElement(final By locator) {

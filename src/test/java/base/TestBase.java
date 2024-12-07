@@ -4,12 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -25,7 +23,7 @@ public class TestBase extends DriverManager {
 	// Setup and TearDown
 	
 	public WebDriver driver;
-	Capabilities chromeOptions = new DesiredCapabilities();
+
 	PropertyReader pr = new PropertyReader();
 	
 	public TestBase() {
@@ -46,9 +44,14 @@ public class TestBase extends DriverManager {
 			if(PropertyReader.readItem("browser").equalsIgnoreCase("chrome")) {
 				//updates chomedriver version to 64bits
 				System.getProperty("java.classpath");
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/chromedriver.exe");
-				driver = new ChromeDriver();
-				//driver = new RemoteWebDriver(new URL("http://192.168.0.135:4444"),  chromeOptions);
+
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/chromedriver.exe");
+
+				//driver = new ChromeDriver();
+
+				EdgeOptions cap = new EdgeOptions();
+
+				driver = new RemoteWebDriver(new URL("http://localhost:4444"),  cap,false);
 				
 			}
 			else {
@@ -83,7 +86,7 @@ public class TestBase extends DriverManager {
 		
 		Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
 	}
-	
+
 }
 
 
