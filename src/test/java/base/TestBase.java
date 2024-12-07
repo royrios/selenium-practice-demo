@@ -51,7 +51,7 @@ public class TestBase extends DriverManager {
 
 				EdgeOptions cap = new EdgeOptions();
 
-				driver = new RemoteWebDriver(new URL("http://localhost:4444"),  cap,false);
+				driver = new RemoteWebDriver(new URL("http://192.168.0.182:4444"),  cap,false);
 				
 			}
 			else {
